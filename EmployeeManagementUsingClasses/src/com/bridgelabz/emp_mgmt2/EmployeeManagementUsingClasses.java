@@ -8,7 +8,10 @@ public class EmployeeManagementUsingClasses {
         Random random = new Random();
         int empWagePerHr = 20;
         int fullDayHr = 8;
-        int dailyWage = 0;
+        int dailyWageFD = 0;
+        int partTimeHour = 4;
+        int dailyWageHD = 0;
+
 
         int attendance = random.nextInt(2);
         if(attendance==1){
@@ -16,8 +19,12 @@ public class EmployeeManagementUsingClasses {
         }else{
             System.out.println("Employee is absent.");
         }
-        dailyWage= attendance*empWagePerHr*fullDayHr;
-        System.out.println("Daily wage: "+ dailyWage);
+
+        dailyWageFD = attendance*empWagePerHr*fullDayHr;
+        dailyWageHD = attendance*empWagePerHr*partTimeHour;
+
+        System.out.println("Daily wage for full working day: "+ dailyWageFD);
+        System.out.println("Daily wage for half working day: "+ dailyWageHD);
     }
 
 }
