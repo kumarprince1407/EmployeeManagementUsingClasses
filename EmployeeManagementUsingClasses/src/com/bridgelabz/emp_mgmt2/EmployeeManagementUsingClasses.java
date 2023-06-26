@@ -8,23 +8,28 @@ public class EmployeeManagementUsingClasses {
         Random random = new Random();
         int empWagePerHr = 20;
         int fullDayHr = 8;
-        int dailyWageFD = 0;
+        int dailyWage = 0;
         int partTimeHour = 4;
-        int dailyWageHD = 0;
 
 
-        int attendance = random.nextInt(2);
-        if(attendance==1){
-            System.out.println("Employee is present.");
-        }else{
-            System.out.println("Employee is absent.");
+        int attendance = random.nextInt(3);
+        String attendanceType = "";
+        switch(attendance){
+            case 1:
+                dailyWage = empWagePerHr*fullDayHr;
+                attendanceType= "full-time";
+                break;
+
+            case 2:
+                dailyWage = empWagePerHr*partTimeHour;
+                attendanceType = "part-time";
+                break;
+            default:
+                attendanceType= "absent";
         }
 
-        dailyWageFD = attendance*empWagePerHr*fullDayHr;
-        dailyWageHD = attendance*empWagePerHr*partTimeHour;
+        System.out.println("Employee is "+attendanceType+". Daily wage is: "+ dailyWage);
 
-        System.out.println("Daily wage for full working day: "+ dailyWageFD);
-        System.out.println("Daily wage for half working day: "+ dailyWageHD);
     }
 
 }
