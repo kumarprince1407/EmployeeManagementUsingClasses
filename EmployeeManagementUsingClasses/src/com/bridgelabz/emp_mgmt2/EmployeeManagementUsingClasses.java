@@ -3,22 +3,26 @@ package com.bridgelabz.emp_mgmt2;
 import java.util.Random;
 
 public class EmployeeManagementUsingClasses {
+    private static final  int empWagePerHr=20;
+    private static final int fullDayHr = 8;
+    private static final int partTimeHour =4;
+    private static final int maxWorkingDays = 20;
+    private static final int maxWorkingHours=100;
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Management using classes.");
         System.out.println();
-        Random random = new Random();
-        int empWagePerHr = 20;
-        int fullDayHr = 8;
+        calculateEmployeeWage();
+    }
+    public static void calculateEmployeeWage(){
 
-        int partTimeHour = 4;
-        int workingDaysPerMonth=20;
-        int totalWorkingDays=20;
-        int workingDays=0;
+        Random random = new Random();
+
+        int totalWorkingDays=0;
         int totalWage=0;
         int totalWorkingHours=0;
-        int maxWorkingHours=100;
 
-        while(workingDays<=totalWorkingDays && totalWorkingHours<=maxWorkingHours) {
+
+        while(totalWorkingDays<=maxWorkingDays && totalWorkingHours<=maxWorkingHours) {
             int dailyWage = 0;
             int attendance = random.nextInt(3);
             String attendanceType = "";
@@ -39,7 +43,7 @@ public class EmployeeManagementUsingClasses {
 
             System.out.println("Employee is " + attendanceType + ". Daily wage is: " + dailyWage);
             totalWage+= dailyWage;
-            workingDays++;
+            totalWorkingDays++;
         }
         System.out.println("Wages for a month: "+totalWage);
     }
