@@ -8,28 +8,38 @@ public class EmployeeManagementUsingClasses {
         Random random = new Random();
         int empWagePerHr = 20;
         int fullDayHr = 8;
-        int dailyWage = 0;
+
         int partTimeHour = 4;
+        int workingDaysPerMonth=20;
+        int totalWorkingDays=20;
+        int workingDays=0;
+        int totalWage=0;
+        //int attendance = random.nextInt(3);
+        //String attendanceType = "";
+        while(workingDays<totalWorkingDays) {
+            int dailyWage = 0;
+            int attendance = random.nextInt(3);
+            String attendanceType = "";
+            switch (attendance) {
 
+                case 1:
+                    dailyWage = empWagePerHr * fullDayHr;
+                    attendanceType = "full-time";
+                    break;
 
-        int attendance = random.nextInt(3);
-        String attendanceType = "";
-        switch(attendance){
-            case 1:
-                dailyWage = empWagePerHr*fullDayHr;
-                attendanceType= "full-time";
-                break;
+                case 2:
+                    dailyWage = empWagePerHr * partTimeHour;
+                    attendanceType = "part-time";
+                    break;
+                default:
+                    attendanceType = "absent";
+            }
 
-            case 2:
-                dailyWage = empWagePerHr*partTimeHour;
-                attendanceType = "part-time";
-                break;
-            default:
-                attendanceType= "absent";
+            System.out.println("Employee is " + attendanceType + ". Daily wage is: " + dailyWage);
+            totalWage+= dailyWage;
+            workingDays++;
         }
-
-        System.out.println("Employee is "+attendanceType+". Daily wage is: "+ dailyWage);
-
+        System.out.println("Wages for a month: "+totalWage);
     }
 
 }
